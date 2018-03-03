@@ -1,6 +1,6 @@
 Get translation statistics from Transifex:
 
-    ./get-states > stats.json
+    ./get-stats > stats.json
 
 Generate report in Markdown:
 
