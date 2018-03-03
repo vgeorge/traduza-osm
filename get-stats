@@ -1,0 +1,47 @@
+#!/usr/bin/env node
+
+const async = require("async");
+const request = require('superagent');
+
+const apiKey = 'your transifex api key';
+const apiUrl = "https://www.transifex.com/api/2";
+const language = 'pt_BR';
+
+let projects = require('./stats.json');
+
+function getResouce(project, resource, doneResource) {
+  request
+    .get(apiUrl + '/project/' + project.slug + '/resource/' + resource.slug + '/stats/' + language)
+    .auth('api', apiKey)
+    .end((err, res) => {
+      doneResource(err, res && res.body);
+    });
+}
+
+function getProjectStats(project, doneProject) {
+  async.mapSeries(project.resources, (resource, doneResource) => {
+    getResouce(project, resource, (err, stat) => {
+      doneResource(err, {
+        ...resource,
+        ...stat
+      })
+    });
+  }, (err, resources) => {
+    if (!err) project.resources = resources;
+    doneProject(err, project)
+  });
+}
+
+function getProject(project, doneProjectDetails) {
+  request
+    .get(apiUrl + '/project/' + project.slug + '/?details')
+    .auth('api', apiKey)
+    .end((err, res) => {
+      if (err) dodoneProjectDetails(err)
+      else getProjectStats(res.body, doneProjectDetails);
+    });
+}
+
+async.mapSeries(projects, getProject, (err, results) => {
+  console.log(JSON.stringify(results));
+});

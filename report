@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+const _ = require('lodash');
+let projects = require('./stats.json');
+
+// filter resources needing translation
+projects = projects.map(project => {
+  project.resources = _.filter(project.resources, r => {
+    return r.untranslated_entities > 0
+  })
+  return project;
+});
+
+// filter projects needing translation
+projects = projects.filter(p=>{
+  return p.resources.length > 0
+})
+
+// Print markdown
+projects.forEach(p=>{
+  console.log('-', p.name);
+  p.resources.forEach(r=>{
+    const link = `https://www.transifex.com/${p.organization.slug}/${p.slug}/viewstrings/#pt_BR/${r.slug}`;    
+    console.log(`  - [${r.untranslated_entities}: ${r.name}](${link})`);
+  });
+})
+

@@ -1,0 +1,12 @@
+{
+  "name": "osm-ptbr-bot",
+  "version": "0.0.1",
+  "description": "Generate report of untranslated OSM project in Transifex",
+  "main": "index.js",
+  "author": "Vitor George <vitor.george@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.6.0",
+    "superagent": "^3.8.2"
+  }
+}
