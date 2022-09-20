@@ -5,8 +5,13 @@
   "main": "index.js",
   "author": "Vitor George <vitor.george@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
-    "async": "^2.6.0",
-    "superagent": "^3.8.2"
+    "dotenv": "^16.0.2",
+    "fs-extra": "^10.1.0",
+    "lodash": "^4.17.21",
+    "superagent": "^8.0.0"
   }
 }

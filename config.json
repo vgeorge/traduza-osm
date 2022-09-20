@@ -1,0 +1,16 @@
+{
+  "resources": [
+    {
+      "url": "id-editor/core/pt_BR",
+      "displayName": "Editor iD (core)"
+    },
+    {
+      "url": "presets/presetpot/pt_BR",
+      "displayName": "Website (presets)"
+    },
+    {
+      "url": "tasking-manager/version-4/pt_BR",
+      "displayName": "Tasking Manager v4"
+    }
+  ]
+}

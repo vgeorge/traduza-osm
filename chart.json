@@ -1,0 +1,59 @@
+{
+  "type": "horizontalBar",
+  "data": {
+    "labels": [
+      "Editor iD (core)",
+      "Website (presets)",
+      "Tasking Manager v4"
+    ],
+    "datasets": [
+      {
+        "label": "Traduzidas",
+        "backgroundColor": "rgba(54, 162, 235, 0.5)",
+        "borderColor": "rgb(54, 162, 235)",
+        "data": [
+          99,
+          42.12615791795324,
+          97.82411604714416
+        ]
+      },
+      {
+        "label": "A traduzir",
+        "backgroundColor": "rgba(255, 99, 132, 0.5)",
+        "borderColor": "rgb(255, 99, 132)",
+        "borderWidth": 1,
+        "data": [
+          -1,
+          -57.87384208204676,
+          -2.175883952855848
+        ]
+      },
+      {
+        "label": "Revisadas",
+        "backgroundColor": "rgba(99, 255, 136, 0.5)",
+        "borderColor": "rgb(99, 255, 136)",
+        "borderWidth": 1,
+        "data": [
+          0,
+          0,
+          41.890639481000925
+        ]
+      }
+    ]
+  },
+  "options": {
+    "elements": {
+      "rectangle": {
+        "borderWidth": 2
+      }
+    },
+    "responsive": true,
+    "legend": {
+      "position": "bottom"
+    },
+    "title": {
+      "display": true,
+      "text": "Entidades em pt-BR no Transifex (%)"
+    }
+  }
+}
